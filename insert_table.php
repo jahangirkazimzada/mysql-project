@@ -1,20 +1,28 @@
 <?php 
     include 'connect_db.php';
-    
-    $name = "Cahangir";
-    $surname = "Kazimzada";
-    $password = "200229";
 
-    $name = "Cavid";
-    $surname = "Kazimzada";
-    $password = "199815";
+    $conn -> query("ALTER TABLE workers ADD IF NOT EXISTS age VARCHAR(100) NOT NULL");
 
-    $name = "Agamusa";
-    $surname = "Kazimzada";
-    $password = "201117";
+    $stmt = $conn -> prepare("INSERT INTO workers(name, surname, password, age) VALUES (?, ?, ?, ?)");
+    $stmt -> bind_param("ssss", $name, $surname, $password, $age);
     
-    $stmt = $conn -> prepare("INSERT INTO workers(name, surname, password)VALUES(?, ?, ?)");
-    $stmt -> bind_param("sss", $name, $surname, $password);
-    $stmt -> execute();
+
+    $workers = [
+        ["Cahangir", "Kazimzada", "200229", "23"],
+        ["Cavid", "Kazimzada", "199815", "27"],
+        ["Agamusa", "Kazimzada", "201117", "15"]
+    ];
+
+    foreach($workers as $w){
+        $name = $w[0];
+        $surname = $w[1];
+        $password = $w[2];
+        $age = $w[3];
+        $stmt -> execute();
+    }
+    echo "Data added";
+
+    $stmt -> close();
+    $conn -> close();
     
 ?>

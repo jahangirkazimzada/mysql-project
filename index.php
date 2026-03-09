@@ -1,5 +1,5 @@
 <?php 
-    include 'list.php';
+    include 'insert_table.php';
 
 
 ?>
