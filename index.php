@@ -13,6 +13,22 @@
         $sql = "SELECT * FROM workers";
         $list = $conn -> query($sql);
     ?>
+    <div class="form-control">
+        <form action = "insert_table.php" method="POST">
+            <label for="insert-name">Insert name:</label>
+            <input type="text" name = "form_name" required><br><br>
+
+            <label for="insert-surname">Insert surname:</label>
+            <input type="text" name = "form_surname" required><br><br>
+
+            <label for="insert-password">Insert password:</label>
+            <input type="text" name = "form_password" required><br><br>
+
+            <label for="insert-age">Insert age:</label>
+            <input type="text" name = "form_age" required><br><br>
+            <button type="submit" name = "submit_button">Insert</button>
+        </form>
+    </div>
     <div class="container">
         <table>
             <thead>

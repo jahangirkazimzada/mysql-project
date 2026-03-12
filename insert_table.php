@@ -1,29 +1,31 @@
-<?php 
-    include 'connect_db.php';
+<?php
+    include "connect_db.php";
 
-    $conn -> query("ALTER TABLE workers ADD IF NOT EXISTS age VARCHAR(100) NOT NULL");
+    if(isset($_POST["submit_button"])){
+        $name = $_POST["form_name"];
+        $surname = $_POST["form_surname"];
+        $password = $_POST["form_password"];
+        $age = $_POST["form_age"];
 
-    $stmt = $conn -> prepare("INSERT INTO workers(name, surname, password, age) VALUES (?, ?, ?, ?)");
-    $stmt -> bind_param("ssss", $name, $surname, $password, $age);
-    
+        $stmt = $conn -> prepare("INSERT INTO workers(name, surname, password, age)VALUES(?, ?, ?, ?)");
+        $stmt -> bind_param("ssss", $name, $surname, $password, $age);
 
-    $workers = [
-        ["Cahangir", "Kazimzada", "200229", "23"],
-        ["Cavid", "Kazimzada", "199815", "27"],
-        ["Agamusa", "Kazimzada", "201117", "15"],
-        ["Ismayil", "Huseynli", "200204", "24"]
-    ];
-
-    foreach($workers as $w){
-        $name = $w[0];
-        $surname = $w[1];
-        $password = $w[2];
-        $age = $w[3];
-        $stmt -> execute();
+        if($stmt -> execute()){
+            header("Location: index.php");
+            exit();
+        }else{
+            echo "Error!" . $stmt -> error();
+        }
+        $stmt -> close();
+    }else{
+        header("Location: index.php");
+        exit();
     }
-    echo "Data added";
 
-    $stmt -> close();
     $conn -> close();
-    
+
+
+
+
+
 ?>
