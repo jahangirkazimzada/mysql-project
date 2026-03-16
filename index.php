@@ -15,17 +15,18 @@
     ?>
     <div class="form-control">
         <form action = "insert_table.php" method="POST">
-            <label for="insert-name">Insert name:</label>
+            <label for="insert-name">Name:</label>
             <input type="text" name = "form_name" required><br><br>
 
-            <label for="insert-surname">Insert surname:</label>
+            <label for="insert-surname">Surname:</label>
             <input type="text" name = "form_surname" required><br><br>
 
-            <label for="insert-password">Insert password:</label>
-            <input type="text" name = "form_password" required><br><br>
 
-            <label for="insert-age">Insert age:</label>
+            <label for="insert-age">Age:</label>
             <input type="text" name = "form_age" required><br><br>
+
+            <label for="insert-age">City:</label>
+            <input type="text" name = "form_city" required><br><br>
             <button type="submit" name = "submit_button">Insert</button>
         </form>
     </div>
@@ -36,8 +37,10 @@
                     <th>Id</th>
                     <th>Name</th>
                     <th>Surname</th>
-                    <th>Password</th>
+                    
                     <th>Age</th>
+                    <th>City</th>
+                    <th>PersonId</th>
                 </tr>
             </thead>
             <tbody>
@@ -46,17 +49,19 @@
                         <td><?php echo $row["id"] ?></td>
                         <td><?php echo $row["name"] ?></td>
                         <td><?php echo $row["surname"] ?></td>
-                        <td><?php echo $row["password"] ?></td>
+                        
                         <td><?php echo $row["age"] ?></td>
+                        <td><?php echo $row["city"] ?></td>
+                        <td><?php echo $row["personId"] ?></td>
                     </tr>
                 <?php endwhile; ?>
             </tbody>
         </table>
     </div>
     <script>
-        document.querySelectorAll(".row").forEach((element, index) => {
-            if((index % 2 === 0)){
-                element.style.cssText = "background-color: rgb(138, 167, 167) !important;"
+        document.querySelectorAll(".row") . forEach((element, index) => {
+            if((index += 1) % 2 !== 0){
+                element.style.cssText = "background-color: black; color: white;";
             }
         })
     </script>
