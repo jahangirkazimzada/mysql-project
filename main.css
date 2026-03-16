@@ -1,5 +1,6 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
+    
 }
 
 
@@ -26,6 +27,7 @@ body{
 }
 
 
+
 .container{
     display: flex;
     justify-content: center;
@@ -47,4 +49,14 @@ th, td{
     height: 40px;
     text-align: center;
     
+}
+
+.delete-btn{
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: red;
+    text-decoration: none;
+    font-size: 20px;
+    color: aliceblue;
 }

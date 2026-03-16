@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="main.css">
     <title>Document</title>
 </head>
@@ -53,11 +54,20 @@
                         <td><?php echo $row["age"] ?></td>
                         <td><?php echo $row["city"] ?></td>
                         <td><?php echo $row["personId"] ?></td>
+                        <td>
+                            <a href="delete.php?id=<?php echo $row['id'] ?>" class = "delete-btn" onclick = "return confirm('Bu qeydi silmek istediyinize eminsiniz?')">Delete</a>
+                            
+                        </td>
                     </tr>
+                    
                 <?php endwhile; ?>
             </tbody>
         </table>
     </div>
+
+    
+    
+    
     <script>
         document.querySelectorAll(".row") . forEach((element, index) => {
             if((index += 1) % 2 !== 0){
