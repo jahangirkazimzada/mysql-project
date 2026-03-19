@@ -66,7 +66,7 @@
     </div>
     <div class="container">
         <form action="delete.php" method="GET">
-            <input type="submit" value="Delete All" name = "deleteAllData">
+            <input type="submit" value="Delete All" name = "deleteAllData" onclick = "return confirm('Butun melumatlari silmek isteyirsinizmi?')">
         </form>
     </div>
     <script>
